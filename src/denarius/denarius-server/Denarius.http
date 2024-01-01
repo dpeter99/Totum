@@ -1,0 +1,6 @@
+@Denarius_HostAddress = http://localhost:5242
+
+GET {{Denarius_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
