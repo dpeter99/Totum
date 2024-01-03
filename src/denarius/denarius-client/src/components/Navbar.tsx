@@ -36,7 +36,9 @@ export function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
-            <b>DENARIUS</b>
+            <Typography variant="h6">
+              <Link to="/">DENARIUS</Link>
+            </Typography>
             <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
               <DrawerComponent setOpenDrawer={setOpenDrawer}></DrawerComponent>
             </Drawer>
