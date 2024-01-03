@@ -1,10 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 using Denarius.Model;
 
 namespace Denarius.DTO;
 
+[APIDataContract("Transaction")]
 public class TransactionDTO
 {
+    [Key]
     public long Id { get; set; }
     
     [Required]

@@ -13,7 +13,7 @@ namespace Denarius.Controllers.v1
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("1.0")]
-    public class TransactionController(BankingContext context, IMapper mapper) : ODataController
+    public class TransactionController(BankingContext context, IMapper mapper) : Controller
     {
         // GET: api/Transaction
         [HttpGet]
@@ -26,7 +26,7 @@ namespace Denarius.Controllers.v1
 
         // GET: api/Transaction/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TransactionDTO>> GetTransaction(string id)
+        public async Task<ActionResult<TransactionDTO>> GetTransaction(long id)
         {
             var transaction = await context.Transactions.FindAsync(id);
 

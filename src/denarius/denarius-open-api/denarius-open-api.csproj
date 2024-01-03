@@ -1,0 +1,31 @@
+<Project DefaultTargets="Build">
+    
+    <ItemGroup>
+        <ProjectReference Include="..\denarius-server\denarius-server.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <ProjectDirectory>$(MSBuildThisFileDirectory)</ProjectDirectory>
+        <OpenApiOutput>$(ProjectDirectory)swagger.json</OpenApiOutput>
+    </PropertyGroup>
+    
+    <Target Name="BuildDependencies" BeforeTargets="Build">
+        <MSBuild Projects="@(ProjectReference)">
+            <Output TaskParameter="TargetOutputs" PropertyName="AssemblyPath" />
+        </MSBuild>
+    </Target>
+
+
+
+    <Target Name="Build">
+        <PropertyGroup>
+            <AssemblyPath>$([MSBuild]::MakeRelative($(MSBuildThisFileDirectory), $(AssemblyPath)))</AssemblyPath>
+            <ServerPath>$([System.IO.Path]::GetDirectoryName($(ProjectDirectory)))</ServerPath>
+        </PropertyGroup>
+        <!--<Exec WorkingDirectory="" Command="dotnet tool restore"></Exec>-->
+        <Exec 
+                WorkingDirectory="$(ProjectDirectory)" 
+                Command="dotnet tool run swagger tofile --output $(OpenApiOutput) $(AssemblyPath) v1" />
+    </Target>
+
+</Project>

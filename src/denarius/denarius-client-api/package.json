@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "generate": "openapi --input ../denarius-open-api/swagger.json --output ./src --useOptions"
+    },
+    "devDependencies": {
+        "openapi-typescript-codegen": "0.25.0"
+    }
+}

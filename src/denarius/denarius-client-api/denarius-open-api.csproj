@@ -1,0 +1,24 @@
+<Project DefaultTargets="Build">
+    
+    <ItemGroup>
+        <ProjectReference Include="..\denarius-open-api\denarius-open-api.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <ProjectDirectory>$(MSBuildThisFileDirectory)</ProjectDirectory>
+        
+    </PropertyGroup>
+    
+    <Target Name="BuildDependencies" BeforeTargets="Build">
+        <MSBuild Projects="@(ProjectReference)">
+            <Output TaskParameter="TargetOutputs" PropertyName="OpenApiSpec" />
+        </MSBuild>
+    </Target>
+
+    <Target Name="Build">
+        <Exec 
+                WorkingDirectory="$(ProjectDirectory)" 
+                Command="npm run generate" />
+    </Target>
+
+</Project>

@@ -1,6 +1,9 @@
+using System.Reflection;
 using Asp.Versioning.ApiExplorer;
+using Denarius.DTO;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Denarius.Configuration;
@@ -28,6 +31,17 @@ public class ConfigureSwaggerOptions
             options.SwaggerDoc(
                 description.GroupName,
                 CreateVersionInfo(description));
+            
+            options.SchemaFilter<CustomNameSchema>();
+            options.CustomSchemaIds((type =>
+            {
+                var objAttribute = type.GetCustomAttribute<APIDataContractAttribute>();
+                if (objAttribute != default && objAttribute?.Name?.Length > 0)
+                {
+                    return objAttribute.Name;
+                }
+                return type.Name;
+            }));
         }
     }
 
@@ -61,5 +75,23 @@ public class ConfigureSwaggerOptions
         }
         
         return info;
+    }
+}
+
+public class CustomNameSchema : ISchemaFilter
+{
+    public void Apply(OpenApiSchema schema, SchemaFilterContext context)
+    {
+        if (schema?.Properties == null)
+        {
+            return;
+        }
+
+        var objAttribute = context.Type.GetCustomAttribute<APIDataContractAttribute>();
+        if( objAttribute!= default && objAttribute?.Name?.Length > 0)
+        {
+            schema.Title = objAttribute.Name;
+            //schema.Type = objAttribute.Name;
+        }
     }
 }

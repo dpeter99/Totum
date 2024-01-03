@@ -2,6 +2,7 @@ using Denarius.Model;
 
 namespace Denarius.DTO;
 
+[APIDataContract("Category")]
 public class CategoryDTO
 {
     public long Id { get; set; }
@@ -12,7 +13,7 @@ public class CategoryDTO
     
     public string Icon { get; set; } = string.Empty;
     
-    public Category? Parent { get; set; }
+    public long? Parent { get; set; }
 }
 
 public class CategoryProfile : AutoMapper.Profile

@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using AutoMapper;
 using AutoMapper.AspNet.OData;
 using Denarius.DTO;
@@ -9,35 +10,37 @@ using Microsoft.EntityFrameworkCore;
 namespace Denarius.Controllers.v1;
 
 [Route("api/v{version:apiVersion}/[controller]")]
+[ApiController]
+[ApiVersion("1.0")]
 public class CategoryController(BankingContext context, IMapper mapper) : Controller
 {
     [HttpGet]
     [EnableQuery]
-    public async Task<IEnumerable<TransactionDTO>> GetCategory(
-        ODataQueryOptions<TransactionDTO> options)
+    public async Task<IEnumerable<CategoryDTO>> GetCategory(
+        ODataQueryOptions<CategoryDTO> options)
     {
         return await context.Categories.GetAsync(mapper, options);
     }
     
-    [HttpGet("{id}")]
-    public async Task<ActionResult<TransactionDTO>> GetCategory(string id)
+    [HttpGet("{catId}")]
+    public async Task<ActionResult<CategoryDTO>> GetCategory(long catId)
     {
-        var category = await context.Categories.FindAsync(id);
+        var category = await context.Categories.FindAsync(catId);
 
         if (category == null)
         {
             return NotFound();
         }
 
-        return  mapper.Map<TransactionDTO>(category);
+        return  mapper.Map<CategoryDTO>(category);
     }
     
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutCategory(long id, TransactionDTO data)
+    [HttpPut("{catId}")]
+    public async Task<IActionResult> PutCategory(long catId, CategoryDTO data)
     {
-        var category = mapper.Map<Category>(data);
+        var category = mapper.Map<Category>(catId);
         
-        if (id != category.Id)
+        if (catId != category.Id)
         {
             return BadRequest();
         }
@@ -50,7 +53,7 @@ public class CategoryController(BankingContext context, IMapper mapper) : Contro
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!CategoryExists(id))
+            if (!CategoryExists(catId))
             {
                 return NotFound();
             }
