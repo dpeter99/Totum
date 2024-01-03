@@ -1,5 +1,4 @@
-import SvgIcon from "@mui/material/SvgIcon/SvgIcon";
-import React, { MouseEventHandler, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import {
   ListItem,
   ListItemButton,

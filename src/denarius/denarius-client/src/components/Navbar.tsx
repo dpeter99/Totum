@@ -1,25 +1,22 @@
-import Menu from "@mui/material/Menu";
 import {
   AppBar,
   Box,
   Drawer,
   IconButton,
-  List,
-  ListItem,
-  ListItemText,
   Toolbar,
   Typography,
-  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { DrawerComponent } from "./DrawerComponent";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { routeAddresses } from "../routes/Routes";
+import { websiteName } from "../theme/consts";
 
 export function Navbar() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  //const theme = useTheme();
+  //const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
@@ -37,7 +34,7 @@ export function Navbar() {
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
             <Typography variant="h6">
-              <Link to="/">DENARIUS</Link>
+              <Link to={routeAddresses.home.to}>{websiteName}</Link>
             </Typography>
             <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
               <DrawerComponent setOpenDrawer={setOpenDrawer}></DrawerComponent>
