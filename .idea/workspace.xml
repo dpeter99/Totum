@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Made Router specification values into a variable">
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/theme/consts.tsx" afterDir="false" />
+    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Made Router specification values into a variable&#10;&#10;+ small change to drawerLogo">
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/charts/stackedBar/MonoStackerBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/charts/stackedBar/monoStackedBarStyle.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/charts/stackedBar/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/BarChartWithData.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/DashboardCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/_dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/DrawerButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/DrawerButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/DrawerComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/DrawerComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/routes/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/routes/Routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/theme/Palette.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/theme/Palette.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/theme/consts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/theme/consts.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +27,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="com.intellij.reactbuddy.palette" />
         <option value="com.intellij.reactbuddy.previews" />
         <option value="com.intellij.reactbuddy.index" />
         <option value="com.intellij.reactbuddy.useInitial" />
         <option value="com.intellij.reactbuddy.README" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -39,12 +46,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "vluv99"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;vluv99&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -67,33 +74,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ReactCreateComponentLastSelected": "functionDeclarationComponent",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dev/client",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/vluv99/Documents/projects/Totum/src/denarius/denarius-client/denarius-client/package.json",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.React Buddy Preview.executor": "Run",
-    "npm.build.executor": "Run",
-    "npm.start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\vluv99\\AppData\\Roaming\\npm\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\vluv99\\Documents\\projects\\Totum\\src\\denarius\\denarius-client\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ReactCreateComponentLastSelected&quot;: &quot;arrowFunctionComponent&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev/client&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vluv99/Documents/projects/Totum/src/denarius/denarius-client/denarius-client/package.json&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.React Buddy Preview.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\vluv99\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vluv99\\Documents\\projects\\Totum\\src\\denarius\\denarius-client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -105,6 +113,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\src\components\charts\stackedBar" />
+      <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\src\components\dashboard" />
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\src\theme" />
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client" />
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\denarius-client\src\pages\HomePage" />
@@ -157,7 +167,8 @@
       <updated>1704196251731</updated>
       <workItem from="1704196252765" duration="307000" />
       <workItem from="1704196561258" duration="12815000" />
-      <workItem from="1704299828527" duration="13582000" />
+      <workItem from="1704299828527" duration="20866000" />
+      <workItem from="1704364714334" duration="8588000" />
     </task>
     <task id="LOCAL-00001" summary="init - empty TS React project">
       <option name="closed" value="true" />
@@ -191,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704313013560</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Made Router specification values into a variable&#10;&#10;+ small change to drawerLogo">
+      <option name="closed" value="true" />
+      <created>1704315851314</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704315851314</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +234,7 @@
     <MESSAGE value="Navbar &amp; Routing basics&#10;&#10;Implemented Navbar and added some Routing basics to handle Home page for now.&#10;Fixes on folder structures." />
     <MESSAGE value="Navbar Drawer updates" />
     <MESSAGE value="Made Router specification values into a variable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made Router specification values into a variable" />
+    <MESSAGE value="Made Router specification values into a variable&#10;&#10;+ small change to drawerLogo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made Router specification values into a variable&#10;&#10;+ small change to drawerLogo" />
   </component>
 </project>

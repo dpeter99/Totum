@@ -49,7 +49,7 @@ export const darkTheme = createTheme({
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
       default: grey[900],
-      paper: "#121212",
+      paper: "#1A2027",
     },
   },
 });

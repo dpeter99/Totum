@@ -3,14 +3,11 @@ import "./App.css";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
-import { darkTheme, lightTheme } from "./theme/Palette";
+import { useGetUserBrowserTheme } from "./theme/consts";
 
 function App() {
-  const theme =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? darkTheme
-      : lightTheme;
+  const theme = useGetUserBrowserTheme();
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
