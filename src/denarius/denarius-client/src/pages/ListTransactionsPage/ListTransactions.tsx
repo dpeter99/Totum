@@ -44,11 +44,6 @@ export const ListTransactions = () => {
       headerName: "Amount (Ft)",
       type: "number",
       flex: 0,
-      // cellClassName: (params: GridCellParams<number>) =>
-      //   clsx("super-app", {
-      //     negative: params.value < 0,
-      //     positive: params.value > 0,
-      //   }),
       /* width: 80,*/
     },
     {
@@ -173,6 +168,10 @@ export const ListTransactions = () => {
         <DataGrid
           rows={rows}
           columns={columns}
+          autoHeight={true}
+          //autoPageSize={true} // doesn't work well with filtering
+          disableColumnMenu={true}
+          ignoreDiacritics={true}
           slots={{
             toolbar: GridToolbar,
           }}
@@ -196,7 +195,7 @@ export const ListTransactions = () => {
               sortModel: [{ field: "date", sort: "desc" }],
             },
           }}
-          pageSizeOptions={[5, 10]}
+          pageSizeOptions={[5, 10, 20]}
           checkboxSelection
         />
       </div>

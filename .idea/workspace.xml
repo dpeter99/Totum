@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Dashboard stackBar chart &amp; dummy data &amp; animation">
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransactionPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.css" afterDir="false" />
+    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Added listing page&#10;&#10;Now it has some basic looks and functions. It good for now but filtering and other sorting has to be looked over later on.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/DashboardCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/PaperCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/_dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/_dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +157,7 @@
       <workItem from="1704196252765" duration="307000" />
       <workItem from="1704196561258" duration="12815000" />
       <workItem from="1704299828527" duration="20866000" />
-      <workItem from="1704364714334" duration="19167000" />
+      <workItem from="1704364714334" duration="20955000" />
     </task>
     <task id="LOCAL-00001" summary="init - empty TS React project">
       <option name="closed" value="true" />
@@ -217,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704380154105</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added listing page&#10;&#10;Now it has some basic looks and functions. It good for now but filtering and other sorting has to be looked over later on.">
+      <option name="closed" value="true" />
+      <created>1704469792615</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704469792615</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +241,7 @@
     <MESSAGE value="Made Router specification values into a variable" />
     <MESSAGE value="Made Router specification values into a variable&#10;&#10;+ small change to drawerLogo" />
     <MESSAGE value="Dashboard stackBar chart &amp; dummy data &amp; animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dashboard stackBar chart &amp; dummy data &amp; animation" />
+    <MESSAGE value="Added listing page&#10;&#10;Now it has some basic looks and functions. It good for now but filtering and other sorting has to be looked over later on." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added listing page&#10;&#10;Now it has some basic looks and functions. It good for now but filtering and other sorting has to be looked over later on." />
   </component>
 </project>
