@@ -17,7 +17,10 @@ function App() {
         sx={{
           //backgroundColor: (theme) => theme.palette.background.paper,
           flexGrow: 1,
-          height: "100vh",
+          height:
+            "-o-calc(100% - 65px)" ||
+            "-webkit-calc(100% - 65px)" ||
+            "-moz-calc(100% - 65px)",
           overflow: "auto",
         }}
       >

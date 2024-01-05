@@ -4,3 +4,7 @@
   flex-direction: column;
   align-items: center;
 }
+
+.paper-card{
+  padding: 20px;
+}

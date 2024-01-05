@@ -2,7 +2,7 @@ import { Container, /*createTheme,*/ Paper, Typography } from "@mui/material";
 //import { useGetUserBrowserTheme } from "../../theme/consts";
 import { ReactElement } from "react";
 
-import "./_dashboard.css";
+import "../App.css";
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 // const theme = useGetUserBrowserTheme();
@@ -36,10 +36,10 @@ interface DashboardCardProps {
   children: ReactElement;
 }
 
-export const DashboardCard = ({ label, children }: DashboardCardProps) => {
+export const PaperCard = ({ label, children }: DashboardCardProps) => {
   return (
     <>
-      <Paper elevation={4} className="dashboard-card">
+      <Paper elevation={4} className="paper-card">
         <Container>
           <Typography
             className="card-label"
