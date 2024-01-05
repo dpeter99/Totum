@@ -9,8 +9,16 @@ import {
 
 import "./ListTransactions.css";
 import { useGetUserBrowserTheme } from "../../theme/consts";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 
 export const ListTransactions = () => {
+  const _isMobile = isMobile;
+
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 100 },
     {
@@ -23,13 +31,13 @@ export const ListTransactions = () => {
       field: "shop",
       headerName: "Shop",
       flex: 0,
-      minWidth: 110 /*width: 150*/,
+      minWidth: _isMobile ? 110 : 180,
     },
     {
       field: "category",
       headerName: "Category",
       flex: 0,
-      minWidth: 130,
+      minWidth: _isMobile ? 130 : 160,
       /*type: "Category",*/ /*width: 130,*/
     },
     {
@@ -37,6 +45,7 @@ export const ListTransactions = () => {
       headerName: "Desc.",
       sortable: false,
       flex: 0,
+      minWidth: _isMobile ? 110 : 220,
       /*width: 130,*/
     },
     {
@@ -146,11 +155,15 @@ export const ListTransactions = () => {
     // <Container className="addNew--container">
     <Box
       sx={{
-        flexGrow: 1,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        direction: "column",
+        //flexGrow: 1,
+        //display: "flex",
+        //justifyContent: "center",
+        //alignItems: "center",
+        //direction: "column",
+        //width: _isMobile || window.screen.width < 1200 ? "95%" : "80%",
+        width: _isMobile ? "95%" : "80%",
+        marginLeft: "auto",
+        marginRight: "auto",
         "& .plus": {
           color: theme.palette.success.main,
         },
