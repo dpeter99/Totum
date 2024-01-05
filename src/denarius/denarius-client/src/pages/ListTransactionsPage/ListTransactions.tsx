@@ -10,9 +10,9 @@ import {
 import "./ListTransactions.css";
 import { useGetUserBrowserTheme } from "../../theme/consts";
 import {
-  BrowserView,
-  MobileView,
-  isBrowser,
+  // BrowserView,
+  // MobileView,
+  // isBrowser,
   isMobile,
 } from "react-device-detect";
 
