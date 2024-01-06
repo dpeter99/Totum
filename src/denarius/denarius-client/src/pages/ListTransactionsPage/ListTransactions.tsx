@@ -15,6 +15,7 @@ import {
   // isBrowser,
   isMobile,
 } from "react-device-detect";
+import { testTransactions } from "./TestTransactions";
 
 export const ListTransactions = () => {
   const _isMobile = isMobile;
@@ -80,100 +81,27 @@ export const ListTransactions = () => {
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      date: new Date("2023.10.31"),
-      shop: "Papír írószer",
-      category: "Other",
-      description: "-",
-      amount: -2630,
-      user: "Lau",
-      isCommon: true,
-      cardType: "Main Debit Card",
-    },
-    {
-      id: 2,
-      date: new Date("2023.11.08"),
-      shop: "rent",
-      category: "Rent",
-      description: "-",
-      amount: -100000,
-      user: "Lau",
-      isCommon: true,
-      cardType: "Main Debit Card",
-    },
-    {
-      id: 3,
-      date: new Date("2023.11.05"),
-      shop: "Wolt",
-      category: "Food Delivery",
-      description: "-",
-      amount: -5864,
-      user: "Lau",
-      isCommon: true,
-      cardType: "SZÉP",
-    },
-    {
-      id: 4,
-      date: new Date("2023.12.12"),
-      shop: "Alle Gyógyszertár",
-      category: "Medicine",
-      description: "feketenadálytő krém",
-      amount: -1129,
-      user: "Lau",
-      isCommon: true,
-      cardType: "Main Debit Card",
-    },
-    {
-      id: 5,
-      date: new Date("2023.10.28"),
-      shop: "MvM Áram",
-      category: "Rent",
-      description: "-",
-      amount: -6708,
-      user: "Peter",
-      isCommon: true,
-      cardType: "Main Debit Card",
-    },
-    {
-      id: 6,
-      date: new Date("2023.12.22"),
-      shop: "Clario Clinical Kft.",
-      category: "Income",
-      description: "Salary",
-      amount: 630060,
-      user: "Lau",
-      isCommon: false,
-      cardType: "Main Debit Card",
-    },
-  ];
+  const rows = testTransactions;
 
   const theme = useGetUserBrowserTheme();
 
   return (
-    // <Container className="addNew--container">
     <Box
       sx={{
-        //flexGrow: 1,
-        //display: "flex",
-        //justifyContent: "center",
-        //alignItems: "center",
-        //direction: "column",
         //width: _isMobile || window.screen.width < 1200 ? "95%" : "80%",
         width: _isMobile ? "95%" : "80%",
-        marginLeft: "auto",
-        marginRight: "auto",
+        margin: _isMobile ? "5% auto" : "3% auto",
         "& .plus": {
           color: theme.palette.success.main,
+          fontWeight: "bold",
         },
         "& .minus": {
           color: theme.palette.error.main,
+          fontWeight: "bold",
         },
       }}
-      className="list--container"
+      //className="list--container"
     >
-      {/*<PaperCard label="Add New Transactions">*/}
       <div>
         <Typography gutterBottom variant="h5" component="div">
           List Transactions
@@ -185,6 +113,7 @@ export const ListTransactions = () => {
           //autoPageSize={true} // doesn't work well with filtering
           disableColumnMenu={true}
           ignoreDiacritics={true}
+          editMode="row"
           slots={{
             toolbar: GridToolbar,
           }}
@@ -212,8 +141,6 @@ export const ListTransactions = () => {
           checkboxSelection
         />
       </div>
-      {/*</PaperCard>*/}
     </Box>
-    // </Container>
   );
 };

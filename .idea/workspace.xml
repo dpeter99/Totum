@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Small fixes on listing page v2" />
+    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Small fixes on listing page v2">
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransactionPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransactionPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +28,9 @@
         <option value="com.intellij.reactbuddy.index" />
         <option value="com.intellij.reactbuddy.useInitial" />
         <option value="com.intellij.reactbuddy.README" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
         <option value="CSS File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -154,7 +164,7 @@
       <workItem from="1704196252765" duration="307000" />
       <workItem from="1704196561258" duration="12815000" />
       <workItem from="1704299828527" duration="20866000" />
-      <workItem from="1704364714334" duration="22383000" />
+      <workItem from="1704364714334" duration="30781000" />
     </task>
     <task id="LOCAL-00001" summary="init - empty TS React project">
       <option name="closed" value="true" />
@@ -228,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704472835352</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Small fixes on listing page v2">
+      <option name="closed" value="true" />
+      <created>1704472867988</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704472867988</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

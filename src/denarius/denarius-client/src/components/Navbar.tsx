@@ -5,7 +5,6 @@ import {
   IconButton,
   Toolbar,
   Typography,
-  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { DrawerComponent } from "./DrawerComponent";
