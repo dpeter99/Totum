@@ -1,11 +1,18 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "./App.css";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { useGetUserBrowserTheme } from "./theme/consts";
 
-function App() {
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+
+interface Props {
+  children: ReactElement;
+}
+
+function App(/*{ children }: Props*/) {
   const theme = useGetUserBrowserTheme();
 
   return (
@@ -24,7 +31,10 @@ function App() {
           overflow: "auto",
         }}
       >
-        <Outlet />
+        <LocalizationProvider dateAdapter={AdapterMoment}>
+          <Outlet />
+          {/*{children}*/}
+        </LocalizationProvider>
       </Box>
     </ThemeProvider>
   );
