@@ -24,10 +24,10 @@ function App(/*{ children }: Props*/) {
         sx={{
           //backgroundColor: (theme) => theme.palette.background.paper,
           flexGrow: 1,
-          height:
-            "-o-calc(100% - 65px)" ||
-            "-webkit-calc(100% - 65px)" ||
-            "-moz-calc(100% - 65px)",
+          height: "calc(100% - 65px)",
+          // "-o-calc(100% - 65px)" ||
+          // "-webkit-calc(100% - 65px)" ||
+          // "-moz-calc(100% - 65px)",
           overflow: "auto",
         }}
       >

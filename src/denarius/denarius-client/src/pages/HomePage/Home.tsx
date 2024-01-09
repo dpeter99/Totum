@@ -1,8 +1,8 @@
 import { Container, Box } from "@mui/material";
 
 import "./Home.css";
-import { BarChartWithData } from "../../components/dashboard/BarChartWithData";
 import { PaperCard } from "../../components/PaperCard";
+import { BarChartWithData } from "../../components/dashboard/BarChartWithData";
 
 //TODO: get a currencyformatter set by the account type
 

@@ -1,3 +1,5 @@
+import { TransactionService } from "denarius-client-api";
+
 interface Transactions {
   id: number;
   date: Date;
@@ -37,6 +39,8 @@ export const users = {
   Lau: "Lau",
   Peter: "Peter",
 };
+
+let trans = TransactionService.getApiV1Transaction({});
 
 export const testTransactions: Transactions[] = [
   {

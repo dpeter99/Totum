@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="[WIP] Add transactions page">
+    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Add transactions page - added input fields">
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client-api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/palette.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/previews.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/useInitial.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +34,9 @@
         <option value="com.intellij.reactbuddy.index" />
         <option value="com.intellij.reactbuddy.useInitial" />
         <option value="com.intellij.reactbuddy.README" />
-        <option value="TypeScript File" />
         <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -160,7 +170,7 @@
       <workItem from="1704196252765" duration="307000" />
       <workItem from="1704196561258" duration="12815000" />
       <workItem from="1704299828527" duration="20866000" />
-      <workItem from="1704364714334" duration="36122000" />
+      <workItem from="1704364714334" duration="41620000" />
     </task>
     <task id="LOCAL-00001" summary="init - empty TS React project">
       <option name="closed" value="true" />
@@ -250,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704552705995</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add transactions page - added input fields">
+      <option name="closed" value="true" />
+      <created>1704568353592</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704568353592</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +298,7 @@
     <MESSAGE value="Small fixes on listing page" />
     <MESSAGE value="Small fixes on listing page v2" />
     <MESSAGE value="[WIP] Add transactions page" />
-    <option name="LAST_COMMIT_MESSAGE" value="[WIP] Add transactions page" />
+    <MESSAGE value="Add transactions page - added input fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add transactions page - added input fields" />
   </component>
 </project>
