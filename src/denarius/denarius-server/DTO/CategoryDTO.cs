@@ -21,5 +21,6 @@ public class CategoryProfile : AutoMapper.Profile
     public CategoryProfile()
     {
         CreateMap<Category, CategoryDTO>();
+        CreateMap<CategoryDTO, Category>();
     }
 }

@@ -53,7 +53,11 @@ builder.Services.AddApiVersioning(opt =>
 builder.Services.AddDbContext<BankingContext>(opt =>
     opt.UseInMemoryDatabase("BakingDb"));
 
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(configAction: (provider, expression) =>
+{
+    expression.AddProfile<TransactionProfile>();
+    expression.AddProfile<CategoryProfile>();
+},typeof(Program));
 
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 

@@ -4,20 +4,40 @@ using Denarius.Model;
 
 namespace Denarius.DTO;
 
-[APIDataContract("Transaction")]
-public class TransactionDTO
+[APIDataContract("TransactionCreate")]
+public class TransactionCreateDTO
 {
-    [Key]
-    public long Id { get; set; }
+    [Required]
+    public DateTime Date { get; set; }
+    
+    [Required]
+    public string Payee { get; set; }
+    
+    [Required]
+    public string CategoryId { get; set; } = null!;
+    
+    public string Description { get; set; } = string.Empty;
     
     [Required]
     public float Amount { get; set; }
     
     [Required]
-    public string Description { get; set; } = string.Empty;
+    public string UserId { get; set; }
     
     [Required]
-    public DateTime Date { get; set; }
+    public bool IsCommon { get; set; }
+    
+    [Required]
+    public string CardType { get; set; }
+}
+
+[APIDataContract("Transaction")]
+public class TransactionDTO : TransactionCreateDTO
+{
+    [Key]
+    public long Id { get; set; }
+    
+    public DateTime CreationDate { get; set; }
 }
 
 public class TransactionProfile : AutoMapper.Profile
@@ -25,5 +45,8 @@ public class TransactionProfile : AutoMapper.Profile
     public TransactionProfile()
     {
         CreateMap<Transaction, TransactionDTO>();
+        CreateMap<TransactionDTO, Transaction>();
+        
+        CreateMap<TransactionCreateDTO, Transaction>();
     }
 }

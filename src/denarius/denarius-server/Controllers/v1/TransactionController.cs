@@ -16,6 +16,21 @@ namespace Denarius.Controllers.v1
     public class TransactionController(BankingContext context, IMapper mapper) : Controller
     {
         // GET: api/Transaction
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        ///
+        /// <example>
+        /// [
+        ///     {
+        ///         "id": 1,
+        ///         "amount": 100.0,
+        ///         "description": "Test",
+        ///     }
+        /// ]
+        /// </example>
         [HttpGet]
         [EnableQuery]
         public async Task<IEnumerable<TransactionDTO>> GetTransactions(
@@ -39,7 +54,15 @@ namespace Denarius.Controllers.v1
         }
 
         // PUT: api/Transaction/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        ///
+        /// 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTransaction(long id, TransactionDTO data)
         {
@@ -74,9 +97,11 @@ namespace Denarius.Controllers.v1
         // POST: api/Transaction
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TransactionDTO>> PostTransaction(TransactionDTO data)
+        public async Task<ActionResult<TransactionDTO>> PostTransaction(TransactionCreateDTO data)
         {
             var transaction = mapper.Map<Transaction>(data);
+            
+            transaction.CreationDate = DateTime.Now;
             
             context.Transactions.Add(transaction);
             await context.SaveChangesAsync();
