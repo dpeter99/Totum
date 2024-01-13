@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Add transactions page - added input fields">
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/getHttpsConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/jest/babelTransform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/jest/cssTransform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/jest/fileTransform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/modules.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/paths.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/webpack/persistentCache/createEnvironmentHash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/webpackDevServer.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/scripts/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/scripts/start.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/scripts/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client-api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/palette.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/previews.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/dev/useInitial.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +49,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -86,7 +89,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev/client&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vluv99/Documents/projects/Totum/src/denarius/denarius-client/denarius-client/package.json&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dpeter99/Documents/Projects/Denarius/Totum/src/denarius/denarius-client-api&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
@@ -114,6 +117,9 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/denarius/denarius-client-api" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\src\components" />
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\src\components\charts\stackedBar" />
@@ -171,6 +177,7 @@
       <workItem from="1704196561258" duration="12815000" />
       <workItem from="1704299828527" duration="20866000" />
       <workItem from="1704364714334" duration="41620000" />
+      <workItem from="1705142316227" duration="575000" />
     </task>
     <task id="LOCAL-00001" summary="init - empty TS React project">
       <option name="closed" value="true" />
