@@ -16,6 +16,8 @@ import {
   isMobile,
 } from "react-device-detect";
 import { testTransactions } from "./TestTransactions";
+import { GlobalContext } from "../../contex/GlobalState";
+import { useContext } from "react";
 
 export const ListTransactions = () => {
   const _isMobile = isMobile;
@@ -29,8 +31,8 @@ export const ListTransactions = () => {
       flex: 0 /*width: 100*/,
     },
     {
-      field: "shop",
-      headerName: "Shop",
+      field: "payee",
+      headerName: "Payee",
       flex: 0,
       minWidth: _isMobile ? 110 : 180,
     },
@@ -81,7 +83,9 @@ export const ListTransactions = () => {
     },
   ];
 
-  const rows = testTransactions;
+  const { transactions } = useContext(GlobalContext);
+
+  const rows = transactions;
 
   const theme = useGetUserBrowserTheme();
 

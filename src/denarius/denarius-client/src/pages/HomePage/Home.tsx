@@ -3,6 +3,8 @@ import { Container, Box } from "@mui/material";
 import "./Home.css";
 import { PaperCard } from "../../components/PaperCard";
 import { BarChartWithData } from "../../components/dashboard/BarChartWithData";
+import { useContext } from "react";
+import { GlobalContext } from "../../contex/GlobalState";
 
 //TODO: get a currencyformatter set by the account type
 

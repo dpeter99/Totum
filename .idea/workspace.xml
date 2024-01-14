@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Add transactions page - added input fields">
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/getHttpsConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/jest/babelTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/jest/cssTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/jest/fileTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/modules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/paths.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/webpack/persistentCache/createEnvironmentHash.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/config/webpackDevServer.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/scripts/build.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/scripts/start.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/scripts/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/contex/AppReducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/contex/GlobalState.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/CategoryModel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/TransactionModel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/UserModel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/BarChartWithData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/BarChartWithData.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +33,8 @@
         <option value="com.intellij.reactbuddy.useInitial" />
         <option value="com.intellij.reactbuddy.README" />
         <option value="CSS File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -49,7 +45,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -79,34 +74,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ReactCreateComponentLastSelected&quot;: &quot;arrowFunctionComponent&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev/client&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dpeter99/Documents/Projects/Denarius/Totum/src/denarius/denarius-client-api&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.React Buddy Preview.executor&quot;: &quot;Run&quot;,
-    &quot;npm.build.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\vluv99\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vluv99\\Documents\\projects\\Totum\\src\\denarius\\denarius-client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ReactCreateComponentLastSelected": "arrowFunctionComponent",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev/client",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/vluv99/Documents/projects/Totum/src/denarius/denarius-client/denarius-client/package.json",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.React Buddy Preview.executor": "Run",
+    "npm.build.executor": "Run",
+    "npm.start.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\vluv99\\AppData\\Roaming\\npm\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\vluv99\\Documents\\projects\\Totum\\src\\denarius\\denarius-client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -117,9 +111,6 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/denarius/denarius-client-api" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\src\components" />
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client\src\components\charts\stackedBar" />
@@ -178,6 +169,8 @@
       <workItem from="1704299828527" duration="20866000" />
       <workItem from="1704364714334" duration="41620000" />
       <workItem from="1705142316227" duration="575000" />
+      <workItem from="1704364714334" duration="42952000" />
+      <workItem from="1705145507165" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="init - empty TS React project">
       <option name="closed" value="true" />
