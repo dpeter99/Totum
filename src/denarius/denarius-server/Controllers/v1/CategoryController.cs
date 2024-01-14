@@ -5,69 +5,63 @@ using Denarius.DTO;
 using Denarius.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Denarius.Controllers.v1;
 
-[Route("api/v{version:apiVersion}/[controller]")]
-[ApiController]
-[ApiVersion("1.0")]
-public class CategoryController(BankingContext context, IMapper mapper) : Controller
+[ApiVersion( 1.0 )]
+[ControllerName( "Categories" )]
+[Route( "api/v{version:apiVersion}/Category" )]
+public class CategoryController(BankingContext context, IMapper mapper) : ODataController
 {
-    [HttpGet]
+    
+    [HttpGet("")]
     [EnableQuery]
-    public async Task<IEnumerable<CategoryDTO>> GetCategory(
-        ODataQueryOptions<CategoryDTO> options)
+    public async Task<IQueryable<CategoryDTO>> GetCategories(ODataQueryOptions<CategoryDTO> options)
     {
-        return await context.Categories.GetAsync(mapper, options);
+        return await context.Categories.GetQueryAsync(mapper, options);
     }
     
-    [HttpGet("{catId}")]
-    public async Task<ActionResult<CategoryDTO>> GetCategory(long catId)
+    [HttpGet("{id:long}")]
+    public async Task<ActionResult<TransactionDTO>> GetCategory(long id)
     {
-        var category = await context.Categories.FindAsync(catId);
+        var transaction = await context.Transactions.FindAsync(id);
 
-        if (category == null)
+        if (transaction == null)
         {
             return NotFound();
         }
 
-        return  mapper.Map<CategoryDTO>(category);
+        return  mapper.Map<TransactionDTO>(transaction);
     }
     
-    [HttpPut("{catId}")]
-    public async Task<IActionResult> PutCategory(long catId, CategoryDTO data)
+    [HttpPost]
+    public async Task<ActionResult<TransactionDTO>> PostCategory(TransactionCreateDTO data)
     {
-        var category = mapper.Map<Category>(catId);
-        
-        if (catId != category.Id)
+        var transaction = mapper.Map<Transaction>(data);
+            
+        transaction.CreationDate = DateTime.Now;
+            
+        context.Transactions.Add(transaction);
+        await context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetCategory), new { id = transaction.Id }, transaction);
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteCategory(string id)
+    {
+        var transaction = await context.Transactions.FindAsync(id);
+        if (transaction == null)
         {
-            return BadRequest();
+            return NotFound();
         }
 
-        context.Entry(category).State = EntityState.Modified;
-
-        try
-        {
-            await context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!CategoryExists(catId))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
+        context.Transactions.Remove(transaction);
+        await context.SaveChangesAsync();
 
         return NoContent();
     }
-
-    private bool CategoryExists(long id)
-    {
-        return context.Categories.Any(e => e.Id == id);
-    }
+    
 }

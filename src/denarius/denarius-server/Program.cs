@@ -1,57 +1,61 @@
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text.Json;
-using Alba.CsConsoleFormat;
-using Denarius;
+using ApiVersioning.Examples;
 using Denarius.DTO;
-using Asp.Versioning;
-using Asp.Versioning.ApiExplorer;
 using Asp.Versioning.Conventions;
-using AspNetCore.RouteAnalyzer;
+using Denarius;
 using Denarius.Configuration;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Denarius.Controllers.v1;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OData.Edm;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder( args );
 
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
+// Add services to the container.
+
+builder.Services
+    .AddControllers()
+    .AddOData( options =>
     {
-        options.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
-    })
-    .AddOData(options => 
-        options
-            .Count().Filter().Expand().Select().OrderBy().SetMaxTop(5)
-            .AddRouteComponents("api/v1", EdmModelBuilder.GetEdmModel())
-        );
+        options.Filter().Select().Count();
+        options.RouteOptions.EnableKeyInParenthesis = false;
+        options.RouteOptions.EnableNonParenthesisForEmptyParameterFunction = true;
+        options.RouteOptions.EnablePropertyNameCaseInsensitive = true;
+        options.RouteOptions.EnableQualifiedOperationCall = false;
+        options.RouteOptions.EnableUnqualifiedOperationCall = true;
+    });
 
 builder.Services.AddProblemDetails();
-
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddApiVersioning(opt =>
+builder.Services
+    .AddApiVersioning(options =>
     {
-        opt.ReportApiVersions = true;
+        options.ReportApiVersions = true;
     })
-    .AddMvc()
-    .AddApiExplorer(
-        setup =>
-        {
-            setup.GroupNameFormat = "'v'VVV";
-            setup.SubstituteApiVersionInUrl = true;
-        })
-    .AddOData(options => options.AddRouteComponents( "api/v{version:apiVersion}" ))
-    .AddODataApiExplorer(
-        setup =>
-        {
-            setup.GroupNameFormat = "'v'VVV";
-            setup.SubstituteApiVersionInUrl = true;
-        });
+    .AddOData( options =>
+    {
+        options.AddRouteComponents( "api/v{version:apiVersion}" );
+    })
+    .AddODataApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
-builder.Services.AddDbContext<BankingContext>(opt =>
-    opt.UseInMemoryDatabase("BakingDb"));
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+builder.Services.AddSwaggerGen(
+    options =>
+    {
+        // add a custom operation filter which sets default values
+        options.OperationFilter<SwaggerDefaultValues>();
+
+        var fileName = typeof( Program ).Assembly.GetName().Name + ".xml";
+        var filePath = Path.Combine( AppContext.BaseDirectory, fileName );
+
+        // integrate xml comments
+        options.IncludeXmlComments( filePath );
+    } );
+
+builder.Services.AddDbContext<BankingContext>(opt => opt.UseInMemoryDatabase("BakingDb"));
 
 builder.Services.AddAutoMapper(configAction: (provider, expression) =>
 {
@@ -59,67 +63,33 @@ builder.Services.AddAutoMapper(configAction: (provider, expression) =>
     expression.AddProfile<CategoryProfile>();
 },typeof(Program));
 
-builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
-
-
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
-
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
-    app.UseSwagger(c =>
-    {
-        c.RouteTemplate = "api/{documentName}/swagger.json";
-    });
-    app.UseSwaggerUI(options =>
-    {
-        foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
-        {
-            options.SwaggerEndpoint($"/api/{description.GroupName}/swagger.json",
-                description.GroupName.ToUpperInvariant());
-        }
-        //options.RoutePrefix = "swagger";
-    });
-    
-    app.UseODataRouteDebug();
-
-    ListRoutes(app);
-}
-
+app.UseHttpsRedirection();
+app.UseAuthorization();
 app.MapControllers();
 
-app.Run();
-
-
-
-void ListRoutes(WebApplication webApplication)
+app.UseODataRouteDebug();
+app.UseSwagger(c =>
 {
-    var routeInfo = webApplication.Services.GetRequiredService<IActionDescriptorCollectionProvider>();
-    
-    var doc = new Document(
-        new Grid {
-            Columns = { GridLength.Auto, GridLength.Auto, GridLength.Star(1) },
-            Children = {
-                new Cell("Id"),
-                new Cell("Name"),
-                new Cell("Url"),
-                routeInfo.ActionDescriptors.Items.Select(item => new[] {
-                    new Cell(item.Id),
-                    new Cell(item.DisplayName),
-                    new Cell(item.AttributeRouteInfo?.Template ?? "null"),
-                })
-            }
-        }
-    );
+    c.RouteTemplate = "api/{documentName}/swagger.json";
+});
+app.UseSwaggerUI(options =>
+{
+    var descriptions = app.DescribeApiVersions();
 
-    var sw = new StringWriter();
-    ConsoleRenderer.RenderDocumentToText(doc, new TextRenderTarget(sw));
-    string str = sw.GetStringBuilder().ToString();
-    Console.WriteLine(str);
-    
-}
+    // build a swagger endpoint for each discovered API version
+    foreach ( var description in descriptions )
+    {
+        var url = $"/api/{description.GroupName}/swagger.json";
+        var name = description.GroupName.ToUpperInvariant();
+        options.SwaggerEndpoint( url, name );
+    }
+});
+
+app.ListRoutes();
+
+app.Run();

@@ -4,6 +4,7 @@ using Denarius.DTO;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Denarius.Configuration;
@@ -25,6 +26,8 @@ public class ConfigureSwaggerOptions
     /// <param name="options"></param>
     public void Configure(SwaggerGenOptions options)
     {
+        //options.ExampleFilters();
+        
         // add swagger document for every API version discovered
         foreach (var description in _provider.ApiVersionDescriptions)
         {
@@ -32,7 +35,6 @@ public class ConfigureSwaggerOptions
                 description.GroupName,
                 CreateVersionInfo(description));
             
-            options.SchemaFilter<CustomNameSchema>();
             options.CustomSchemaIds((type =>
             {
                 var objAttribute = type.GetCustomAttribute<APIDataContractAttribute>();
@@ -42,6 +44,10 @@ public class ConfigureSwaggerOptions
                 }
                 return type.Name;
             }));
+            
+            /*
+            options.SchemaFilter<CustomNameSchema>();
+            */
         }
     }
 
