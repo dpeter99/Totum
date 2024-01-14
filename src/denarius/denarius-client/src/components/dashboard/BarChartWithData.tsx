@@ -2,14 +2,15 @@ import { MonoStackerBar } from "../charts/stackedBar/MonoStackerBar";
 import { useGetUserBrowserTheme } from "../../theme/consts";
 import { Container, Typography } from "@mui/material";
 import { useContext } from "react";
-import { GlobalContext } from "../../contex/GlobalState";
-import { TransactionModel } from "../../models/TransactionModel";
+import { TransactionContext } from "../../contex/GlobalState";
+import { Transaction } from "../../models/Transaction";
+import { users } from "../../models/UserModel";
 
 export function BarChartWithData() {
-  const { transactions } = useContext(GlobalContext);
+  const { transactions } = useContext(TransactionContext);
 
-  const a = summTransactionDataPerUser(transactions, "Peter");
-  const b = summTransactionDataPerUser(transactions, "Lau");
+  const a = summTransactionDataPerUser(transactions, users.Peter);
+  const b = summTransactionDataPerUser(transactions, users.Lau);
 
   const sum = a.number + b.number;
 
@@ -55,16 +56,16 @@ export function BarChartWithData() {
 }
 
 function summTransactionDataPerUser(
-  transactions: TransactionModel[],
+  transactions: Transaction[],
   user: string,
 ): { number: number; color: string; user: string; diff: number } {
   const userTrans = transactions.filter(
-    (t: TransactionModel) => t.user === user && t.amount < 0 && t.isCommon,
+    (t: Transaction) => t.user === user && t.amount < 0 && t.isCommon,
   );
 
   if (userTrans.length > 0) {
     let spent = 0;
-    userTrans.map((t: TransactionModel) => (spent += t.amount));
+    userTrans.map((t: Transaction) => (spent += t.amount));
     return { number: spent, color: "", user: user, diff: 0 };
   }
   return { number: 0, color: "", user: user, diff: 0 };

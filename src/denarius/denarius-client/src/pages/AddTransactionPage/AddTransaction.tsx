@@ -1,10 +1,10 @@
 import {
   Box,
+  Button,
   Checkbox,
   Container,
   FormControl,
   FormControlLabel,
-  Input,
   InputAdornment,
   InputLabel,
   MenuItem,
@@ -12,25 +12,37 @@ import {
   Select,
   SelectChangeEvent,
   TextField,
-  Typography,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { PaperCard } from "../../components/PaperCard";
 
 import "./AddTransactionPage.css";
-import React from "react";
-import {
-  cardTypes,
-  categories,
-  users,
-} from "../ListTransactionsPage/TestTransactions";
-import { AccountCircle } from "@mui/icons-material";
+import React, { FormEvent, useContext, useState } from "react";
+import { cardTypes } from "../ListTransactionsPage/TestTransactions";
+import { AccountCircle, Add, AddCircleOutline } from "@mui/icons-material";
+import { isMobile } from "react-device-detect";
+import { users } from "../../models/UserModel";
+import { categories } from "../../models/CategoryModel";
+import moment, { Moment } from "moment";
+import { Transaction } from "../../models/Transaction";
+import { TransactionContext } from "../../contex/GlobalState";
+import axios from "axios";
+import { baseURL } from "../../theme/consts";
+import { TransactionService } from "denarius-client-api";
 export function AddTransaction() {
+  const [payee, setPayee] = useState("");
   const [category, setCategory] = React.useState("");
+  const [date, setDate] = React.useState<Moment | null>(null);
+  const [amount, setAmount] = useState<number | null>(null);
+  const [description, setDescription] = useState("");
   const [user, setUser] = React.useState("");
   const [card, setCard] = React.useState("");
+  const [isCommon, setIsCommon] = useState(true);
   const [cleared, setCleared] = React.useState<boolean>(false);
+
+  const { addTransaction } = useContext(TransactionContext);
 
   const handleCategoryChange = (event: SelectChangeEvent) => {
     setCategory(event.target.value as string);
@@ -54,6 +66,65 @@ export function AddTransaction() {
     return () => {};
   }, [cleared]);
 
+  const handleClear = () => {
+    setPayee("");
+    setCategory("");
+    setDate(null);
+    setAmount(null);
+    setDescription("");
+    setUser("");
+    setCard("");
+    setIsCommon(true);
+  };
+
+  const toNumberOptional = (value: string) => {
+    if (Number.parseInt(value)) {
+      return Number(value);
+    }
+    return null;
+  };
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const isAmountValid = amount !== null;
+    const isDateValid = date !== null;
+    const isPayeeValid = payee !== "";
+    const isCategoryValid = category !== "";
+    const isUserValid = user !== "";
+    const isCardValid = card !== "";
+
+    if (
+      !isAmountValid &&
+      !isDateValid &&
+      !isPayeeValid &&
+      !isCategoryValid &&
+      !isUserValid &&
+      !isCardValid
+    ) {
+      return;
+    }
+
+    const newTransaction: Transaction = {
+      date: moment(date).toDate(),
+      payee,
+      category,
+      description,
+      amount: +amount!,
+      user,
+      isCommon,
+      cardType: card,
+    };
+
+    try {
+      addTransaction(newTransaction).then(() => {
+        alert("Transaction added!");
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <Container>
       <Box sx={{ flexGrow: 1, margin: "3% 0" }}>
@@ -67,8 +138,16 @@ export function AddTransaction() {
               flexWrap: "wrap",
               "& > :not(style)": { m: 1, width: "25ch" },
             }}
+            onSubmit={onSubmit}
           >
-            <TextField id="shop-textField" label="Shop" variant="outlined" />
+            <TextField
+              id="shop-textField"
+              label="Payee"
+              variant="outlined"
+              type="text"
+              value={payee}
+              onChange={(e) => setPayee(e.target.value)}
+            />
             <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
               <InputLabel id="category-label">Category</InputLabel>
               <Select
@@ -78,9 +157,12 @@ export function AddTransaction() {
                 label="Category"
                 onChange={handleCategoryChange}
               >
-                {Object.entries(categories).map((key, value) => (
-                  <MenuItem key={"category-select-" + value} value={value}>
-                    {key[1]}
+                {Object.entries(categories).map((value) => (
+                  <MenuItem
+                    key={"category-select-" + value[0]}
+                    value={value[0]}
+                  >
+                    {value[1]}
                   </MenuItem>
                 ))}
               </Select>
@@ -89,6 +171,8 @@ export function AddTransaction() {
               label="Date"
               openTo="month"
               views={["year", "month", "day"]}
+              value={date}
+              onChange={(newDate) => setDate(newDate)}
               slotProps={{
                 field: { clearable: true, onClear: () => setCleared(true) },
               }}
@@ -100,6 +184,8 @@ export function AddTransaction() {
               <OutlinedInput
                 id="amounttextField"
                 inputMode="numeric"
+                value={amount ?? ""}
+                onChange={(e) => setAmount(toNumberOptional(e.target.value))}
                 startAdornment={
                   <InputAdornment position="start">Ft</InputAdornment>
                 }
@@ -111,6 +197,9 @@ export function AddTransaction() {
               label="Description"
               multiline
               variant="outlined"
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
             <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
               <InputLabel id="user-label">User</InputLabel>
@@ -121,10 +210,10 @@ export function AddTransaction() {
                 label="User"
                 onChange={handleUserChange}
               >
-                {Object.entries(users).map((key, value) => (
-                  <MenuItem key={"user-select-" + value} value={value}>
+                {Object.entries(users).map((value) => (
+                  <MenuItem key={"user-select-" + value[0]} value={value[0]}>
                     <AccountCircle />
-                    {key[1]}
+                    {value[1]}
                   </MenuItem>
                 ))}
               </Select>
@@ -138,17 +227,67 @@ export function AddTransaction() {
                 label="Card type"
                 onChange={handleCardChange}
               >
-                {Object.entries(cardTypes).map((key, value) => (
-                  <MenuItem key={"card-select-" + value} value={value}>
-                    {key[1]}
+                {Object.entries(cardTypes).map((value) => (
+                  <MenuItem key={"card-select-" + value[0]} value={value[0]}>
+                    {value[1]}
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
             <FormControlLabel
               label="Is common expense?"
-              control={<Checkbox defaultChecked color="secondary" />}
+              control={
+                <Checkbox
+                  //defaultChecked
+                  color="secondary"
+                  checked={isCommon}
+                  onClick={(e) => setIsCommon(!isCommon)}
+                />
+              }
             />
+            <Box
+              sx={{
+                display: "flex",
+                flexGrow: isMobile ? 1 : 2,
+                minWidth: isMobile ? "25ch" : "50ch",
+                flexDirection: isMobile ? "column" : "initial", //TODO: fix the mobile view for these buttons somehow???
+              }}
+            >
+              <FormControl
+                sx={{
+                  marginTop: 1,
+                  marginBottom: 1,
+                  marginRight: isMobile ? 0 : 1,
+                  width: "25ch",
+                }}
+              >
+                <Button
+                  variant="outlined"
+                  startIcon={<DeleteIcon />}
+                  color="secondary"
+                  type="reset"
+                  onClick={handleClear}
+                >
+                  Clear
+                </Button>
+              </FormControl>
+              <FormControl
+                sx={{
+                  marginTop: 1,
+                  marginBottom: 1,
+                  marginLeft: isMobile ? 0 : 1,
+                  width: "25ch",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  startIcon={<AddCircleOutline />}
+                  type="submit"
+                >
+                  Add
+                </Button>
+              </FormControl>
+            </Box>
           </Box>
         </PaperCard>
       </Box>

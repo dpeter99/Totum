@@ -2,7 +2,7 @@
     "name": "denarius-client-api",
     "version": "0.1.0",
     "scripts": {
-        "generate": "openapi --input ../denarius-open-api/swagger.json --output ./src --useOptions"
+        "generate": "openapi --input ../denarius-open-api/swagger.json --output ./src --useOptions --postfixModels DTO"
     },
     "devDependencies": {
         "openapi-typescript-codegen": "0.25.0"

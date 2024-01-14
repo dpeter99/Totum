@@ -16,7 +16,7 @@ import {
   isMobile,
 } from "react-device-detect";
 import { testTransactions } from "./TestTransactions";
-import { GlobalContext } from "../../contex/GlobalState";
+import { TransactionContext } from "../../contex/GlobalState";
 import { useContext } from "react";
 
 export const ListTransactions = () => {
@@ -83,7 +83,7 @@ export const ListTransactions = () => {
     },
   ];
 
-  const { transactions } = useContext(GlobalContext);
+  const { transactions } = useContext(TransactionContext);
 
   const rows = transactions;
 

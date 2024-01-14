@@ -1,59 +1,60 @@
 import React, { createContext, useReducer } from "react";
-import AppReducer, { State } from "./AppReducer";
+import { Transactions, TransactionsReducer } from "./TransactionsReducer";
 import { testTransactions } from "../pages/ListTransactionsPage/TestTransactions";
 import { TransactionService } from "denarius-client-api";
-import { TransactionModel } from "../models/TransactionModel";
-
-const today = new Date();
+import { Transaction } from "../models/Transaction";
+import { Props } from "../util/types";
 
 // Initial state
-const initialState: State = {
-  transactions: await TransactionService.getApiV1Transaction({
-    //orderby: "date desc",
-    // filter: `date gt 2024-01-01`,
-    // filter: `date gt ${new Date(
-    //   today.setMonth(today.getMonth() - 2),
-    // ).toLocaleDateString("en-UK", {
-    //   year: "numeric",
-    //   month: "numeric",
-    //   day: "numeric",
-    // })}`,
-  }).then((transactionsFromDB) =>
-    transactionsFromDB.map((t) => TransactionModel.toModel(t)),
+const initialState: Transactions = {
+  transactions: await TransactionService.getApiV1Transaction({}).then(
+    (transactionsFromDB) =>
+      transactionsFromDB.map((t) => Transaction.toModel(t)),
   ),
 };
 
-type Props = {
-  children: React.ReactNode;
-};
-
 // Create context
-type StateContext = State & {
+type TransactionsModel = Transactions & {
   deleteTransaction: (id: number) => void;
-  addTransaction: (transaction: TransactionModel) => void;
+  addTransaction: (transaction: Transaction) => Promise<void>;
 };
-export const GlobalContext = createContext<StateContext>(null!);
+export const TransactionContext = createContext<TransactionsModel>(null!);
 
 // Provider component
-export const GlobalProvider = ({ children }: Props) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+export const TransactionsProvider = ({ children }: Props) => {
+  const [state, dispatch] = useReducer(TransactionsReducer, initialState);
 
   // Actions
   function deleteTransaction(id: number) {
-    dispatch({
-      type: "DELETE_TRANSACTION",
-      payload: id,
-    });
+    // dispatch({
+    //   type: "DELETE_TRANSACTION",
+    //   payload: id,
+    // });
   }
-  function addTransaction(transaction: TransactionModel) {
-    dispatch({
-      type: "ADD_TRANSACTION",
-      payload: transaction,
-    });
+  async function addTransaction(transaction: Transaction) {
+    //TODO: Error checking
+    try {
+      await TransactionService.postApiV1Transaction({
+        requestBody: Transaction.toDatabaseFormat(transaction),
+      });
+
+      const transactions = await TransactionService.getApiV1Transaction(
+        {},
+      ).then((transactionsFromDB) =>
+        transactionsFromDB.map((t) => Transaction.toModel(t)),
+      );
+
+      dispatch({
+        type: "POPULATE",
+        payload: { transactions },
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
-    <GlobalContext.Provider
+    <TransactionContext.Provider
       value={{
         transactions: state.transactions,
         deleteTransaction,
@@ -61,6 +62,6 @@ export const GlobalProvider = ({ children }: Props) => {
       }}
     >
       {children}
-    </GlobalContext.Provider>
+    </TransactionContext.Provider>
   );
 };

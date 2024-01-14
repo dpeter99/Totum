@@ -4,7 +4,7 @@ import "./Home.css";
 import { PaperCard } from "../../components/PaperCard";
 import { BarChartWithData } from "../../components/dashboard/BarChartWithData";
 import { useContext } from "react";
-import { GlobalContext } from "../../contex/GlobalState";
+import { TransactionContext } from "../../contex/GlobalState";
 
 //TODO: get a currencyformatter set by the account type
 

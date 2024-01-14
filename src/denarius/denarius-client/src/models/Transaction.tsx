@@ -1,6 +1,10 @@
-import { Transaction } from "denarius-client-api";
+import { TransactionDTO } from "denarius-client-api";
+import moment from "moment";
 
-export class TransactionModel {
+/**
+ * Represents a single Transaction
+ */
+export class Transaction {
   id?: number | undefined;
   date: Date;
   payee: string;
@@ -12,7 +16,7 @@ export class TransactionModel {
   cardType: string;
   creationDate?: Date | null;
 
-  constructor(data: TransactionModel) {
+  constructor(data: Transaction) {
     this.id = data.id;
     this.date = data.date;
     this.payee = data.payee;
@@ -24,14 +28,26 @@ export class TransactionModel {
     this.cardType = data.cardType;
   }
 
-  static toModel(t: Transaction): TransactionModel {
-    let model = new TransactionModel({
+  static toModel(t: TransactionDTO): Transaction {
+    let model = new Transaction({
       ...t,
       category: t.categoryId,
       user: t.userId,
       date: new Date(t.date),
       creationDate: new Date(t.creationDate!),
     });
+
+    return model;
+  }
+
+  static toDatabaseFormat(t: Transaction): TransactionDTO {
+    let model = {
+      ...t,
+      categoryId: t.category,
+      userId: t.user,
+      date: moment(t.date).format(),
+      creationDate: undefined,
+    };
 
     return model;
   }

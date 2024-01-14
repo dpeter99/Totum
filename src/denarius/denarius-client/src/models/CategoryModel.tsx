@@ -12,3 +12,19 @@ export class CategoryModel {
   //     return model;
   // }
 }
+
+export const categories = {
+  Groceries: "Groceries",
+  Food: "Food",
+  FoodDelivery: "Food Delivery",
+  Rent: "Rent",
+  Travel: "Travel",
+  Medicine: "Medicine",
+  Electronics: "Electronics",
+  Furniture: "Furniture",
+  Vacation: "Vacation",
+  Income: "Income",
+  Banking: "Banking",
+  Investment: "Investment",
+  Other: "Other",
+};

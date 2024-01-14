@@ -9,3 +9,5 @@ export const useGetUserBrowserTheme = () => {
     ? darkTheme
     : lightTheme;
 };
+
+export const baseURL = "https://localhost:3000";

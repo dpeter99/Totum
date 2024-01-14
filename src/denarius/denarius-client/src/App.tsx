@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { useGetUserBrowserTheme } from "./theme/consts";
 
-import { GlobalProvider } from "./contex/GlobalState";
+import { TransactionsProvider } from "./contex/GlobalState";
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
@@ -14,7 +14,7 @@ function App() {
   const theme = useGetUserBrowserTheme();
 
   return (
-    <GlobalProvider>
+    <TransactionsProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar />
@@ -35,7 +35,7 @@ function App() {
           </LocalizationProvider>
         </Box>
       </ThemeProvider>
-    </GlobalProvider>
+    </TransactionsProvider>
   );
 }
 

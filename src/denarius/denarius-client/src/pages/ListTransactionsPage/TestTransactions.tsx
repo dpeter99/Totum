@@ -1,5 +1,7 @@
 import { TransactionService } from "denarius-client-api";
-import { TransactionModel } from "../../models/TransactionModel";
+import { Transaction } from "../../models/Transaction";
+import { categories } from "../../models/CategoryModel";
+import { users } from "../../models/UserModel";
 
 // interface Transactions {
 //   id: number | null;
@@ -14,22 +16,6 @@ import { TransactionModel } from "../../models/TransactionModel";
 //   creationDate: Date | null;
 // }
 
-export const categories = {
-  Groceries: "Groceries",
-  Food: "Food",
-  FoodDelivery: "Food Delivery",
-  Rent: "Rent",
-  Travel: "Travel",
-  Medicine: "Medicine",
-  Electronics: "Electronics",
-  Furniture: "Furniture",
-  Vacation: "Vacation",
-  Income: "Income",
-  Banking: "Banking",
-  Investment: "Investment",
-  Other: "Other",
-};
-
 export const cardTypes = {
   MainDebit: "Main Debit Card",
   Szep: "SZÉP",
@@ -37,14 +23,9 @@ export const cardTypes = {
   Revolut: "Revolut",
 };
 
-export const users = {
-  Lau: "Lau",
-  Peter: "Peter",
-};
-
 let trans = TransactionService.getApiV1Transaction({});
 
-export const testTransactions: TransactionModel[] = [
+export const testTransactions: Transaction[] = [
   {
     id: 1,
     date: new Date("2023.10.31"),

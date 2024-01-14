@@ -12,3 +12,8 @@ export class UserModel {
   //     return model;
   // }
 }
+
+export const users = {
+  Lau: "Lau",
+  Peter: "Peter",
+};
