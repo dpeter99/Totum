@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Results;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
-
+using Swashbuckle.AspNetCore.Filters;
 using static Microsoft.AspNetCore.Http.StatusCodes;
 using static Microsoft.AspNetCore.OData.Query.AllowedQueryOptions;
 
@@ -35,14 +35,21 @@ public class TransactionController(BankingContext context, IMapper mapper) : ODa
     /// ]
     /// </example>
     [HttpGet("")]
+    [Produces( "application/json" )]
     [EnableQuery]
     public async Task<IQueryable<TransactionDTO>> GetTransactions(ODataQueryOptions<TransactionDTO> options )
     {
         return await context.Transactions.GetQueryAsync(mapper, options);
     }
     
-    [HttpGet("{id:long}")]
-    public async Task<ActionResult<TransactionDTO>> GetTransaction(long id)
+    /// <summary>
+    /// Get a specific transaction by it's id
+    /// </summary>
+    /// <param name="id">The id of the transaction</param>
+    /// <returns>The requested transaction</returns>
+    [HttpGet("{id}")]
+    [ActionName("GetTransaction")]
+    public async Task<ActionResult<TransactionDTO>> GetTransaction(string id)
     {
         var transaction = await context.Transactions.FindAsync(id);
 
@@ -54,17 +61,26 @@ public class TransactionController(BankingContext context, IMapper mapper) : ODa
         return  mapper.Map<TransactionDTO>(transaction);
     }
     
+    /// <summary>
+    /// Create a new transaction
+    /// </summary>
+    /// <param name="data">The transaction data</param>
+    /// <returns></returns>
     [HttpPost]
-    public async Task<ActionResult<TransactionDTO>> PostTransaction(TransactionCreateDTO data)
+    [SwaggerRequestExample(typeof(ODataRawQueryOptions), typeof(TransactionsQueryExample))]
+    [Consumes("application/json")]
+    [Produces("application/json")]
+    [ProducesResponseType(typeof(TransactionDTO), Status201Created)]
+    public async Task<ActionResult<TransactionDTO>> PostTransaction([FromBody] TransactionCreateDTO data)
     {
         var transaction = mapper.Map<Transaction>(data);
             
         transaction.CreationDate = DateTime.Now;
-            
+        
         context.Transactions.Add(transaction);
         await context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetTransaction), new { id = transaction.Id }, transaction);
+        return CreatedAtAction("GetTransaction", new { id = transaction.Id }, transaction);
     }
     
     [HttpDelete("{id}")]
@@ -82,5 +98,42 @@ public class TransactionController(BankingContext context, IMapper mapper) : ODa
         return NoContent();
     }
 
+    [HttpGet("test")]
+    public IActionResult Test([FromQuery]ODataRawQueryOptions query)
+    {
+        return Ok();
+    }
+    
 }
 
+public class TransactionsQueryExample : IMultipleExamplesProvider<TransactionCreateDTO>
+{
+    public IEnumerable<SwaggerExample<TransactionCreateDTO>> GetExamples()
+    {
+        //yield return SwaggerExample.Create("Get all transactions", new Odata);
+        return new []
+        {
+            SwaggerExample.Create(
+                "Add simple transaction", 
+                new TransactionCreateDTO
+                {
+                    Amount = 100,
+                    Description = "Test"
+                }),
+            
+            SwaggerExample.Create(
+                "Add detailed transaction", 
+                new TransactionCreateDTO
+                {
+                    Date = DateTime.Today,
+                    Amount = 100,
+                    Description = "Test",
+                    CardType = "Visa",
+                    CategoryId = "1",
+                    IsCommon = true,
+                    Payee = "Ikea",
+                    UserId = "Peter"
+                })
+        };
+    }
+}

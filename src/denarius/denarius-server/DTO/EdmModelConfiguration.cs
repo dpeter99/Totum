@@ -8,7 +8,7 @@ namespace Denarius.DTO;
 
 public class EdmModelConfiguration : IModelConfiguration
 {
-    private static void ConfigureV1( ODataModelBuilder builder )
+    public static void ConfigureV1( ODataModelBuilder builder )
     {
         var transaction = builder.EntitySet<TransactionDTO>( "Transaction" ).EntityType;
         transaction.HasKey(t=>t.Id);

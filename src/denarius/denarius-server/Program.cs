@@ -7,6 +7,7 @@ using Denarius.Controllers.v1;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder( args );
@@ -42,11 +43,14 @@ builder.Services
     });
 
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
 builder.Services.AddSwaggerGen(
     options =>
     {
         // add a custom operation filter which sets default values
         options.OperationFilter<SwaggerDefaultValues>();
+        
+        options.ExampleFilters();
 
         var fileName = typeof( Program ).Assembly.GetName().Name + ".xml";
         var filePath = Path.Combine( AppContext.BaseDirectory, fileName );

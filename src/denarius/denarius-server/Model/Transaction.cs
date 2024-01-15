@@ -8,7 +8,7 @@ namespace Denarius.Model;
 
 public class Transaction
 {
-    //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string Id { get; set; }
     
     public DateTime Date { get; set; }
