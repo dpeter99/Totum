@@ -14,7 +14,7 @@ public class TransactionCreateDTO
     public string Payee { get; set; }
     
     [Required]
-    public string CategoryId { get; set; } = null!;
+    public long CategoryId { get; set; }
     
     public string Description { get; set; } = string.Empty;
     
@@ -48,5 +48,7 @@ public class TransactionProfile : AutoMapper.Profile
         CreateMap<TransactionDTO, Transaction>();
         
         CreateMap<TransactionCreateDTO, Transaction>();
+        
+        CreateMap<DateTime, DateTime>().ConvertUsing((s) => DateTime.SpecifyKind(s, DateTimeKind.Utc));
     }
 }

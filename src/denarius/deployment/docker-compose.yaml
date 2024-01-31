@@ -8,13 +8,15 @@ services:
       - --api.insecure
     ports:
       - "80:80"
-      - "8080:8080"
+      - "8081:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
         
         
   server:
     image: denarius-server:latest
+    environment:
+      - DENARIUS_Database__ConnectionString=Host=denarius-database;Port=5432;Database=denarius;Username=denarius;Password=denarius
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.denarius-server.rule=Host(`denarius.localhost`) && PathPrefix(`/api`)"
@@ -27,3 +29,13 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.denarius-client.rule=Host(`denarius.localhost`) && !Path(`/api`)"
       - "traefik.http.routers.denarius-client.entrypoints=web"
+
+  databse:
+    image: postgres:latest
+    container_name: denarius-database
+    environment:
+      - POSTGRES_USER=denarius
+      - POSTGRES_PASSWORD=denarius
+      - POSTGRES_DB=denarius
+    ports:
+      - "5432:5432"

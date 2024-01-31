@@ -8,6 +8,7 @@ public class BankingContext : DbContext
     public BankingContext(DbContextOptions<BankingContext> options)
         : base(options)
     {
+        Database.Migrate();
     }
 
     public DbSet<Transaction> Transactions { get; set; } = null!;

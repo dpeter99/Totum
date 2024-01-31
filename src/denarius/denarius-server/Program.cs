@@ -12,9 +12,15 @@ using Denarius.Configuration;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OData.Edm;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddEnvironmentVariables(prefix: "DENARIUS_");
+
+builder.Services.Configure<DatabaseOptions>(builder.Configuration.GetSection(DatabaseOptions.SectionName));
+
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -50,8 +56,17 @@ builder.Services.AddApiVersioning(opt =>
             setup.SubstituteApiVersionInUrl = true;
         });
 
-builder.Services.AddDbContext<BankingContext>(opt =>
-    opt.UseInMemoryDatabase("BakingDb"));
+builder.Services.AddDbContext<BankingContext>((serviceProvider, opt) =>
+{
+    var options = serviceProvider.GetService<IOptions<DatabaseOptions>>();
+    
+    if (builder.Environment.IsDevelopment())
+    {
+        Console.WriteLine(options.Value.ConnectionString);
+    }
+    //opt.UseInMemoryDatabase("BakingDb");
+    opt.UseNpgsql(options.Value.ConnectionString);
+});
 
 builder.Services.AddAutoMapper(configAction: (provider, expression) =>
 {

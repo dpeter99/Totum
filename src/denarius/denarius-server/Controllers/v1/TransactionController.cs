@@ -100,8 +100,15 @@ namespace Denarius.Controllers.v1
         public async Task<ActionResult<TransactionDTO>> PostTransaction(TransactionCreateDTO data)
         {
             var transaction = mapper.Map<Transaction>(data);
+
+            var cat = await context.Categories.FindAsync(data.CategoryId);
+            if (cat is null)
+            {
+                return BadRequest();
+            }
             
-            transaction.CreationDate = DateTime.Now;
+            transaction.Category = cat;
+            transaction.CreationDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             
             context.Transactions.Add(transaction);
             await context.SaveChangesAsync();
