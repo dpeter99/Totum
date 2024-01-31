@@ -1,0 +1,29 @@
+
+services:
+  traefik:
+    image: "traefik:latest"
+    command:
+      - --entrypoints.web.address=:80
+      - --providers.docker
+      - --api.insecure
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+        
+        
+  server:
+    image: denarius-server:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.denarius-server.rule=Host(`denarius.localhost`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.denarius-server.entrypoints=web"
+    
+    
+  client:
+    image: denarius-client:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.denarius-client.rule=Host(`denarius.localhost`) && !Path(`/api`)"
+      - "traefik.http.routers.denarius-client.entrypoints=web"

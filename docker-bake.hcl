@@ -16,3 +16,12 @@ target "denarius-client" {
     }
     tags = ["denarius-client:latest", "denarius-client:${GITHUB_SHA}"]
 }
+
+target "denarius-server" {
+    dockerfile = "./src/denarius/denarius-server/Dockerfile"
+    contexts = {
+        app = "./src/denarius/denarius-server"
+        base = "."
+    }
+    tags = ["denarius-server:latest", "denarius-server:${GITHUB_SHA}"]
+}
