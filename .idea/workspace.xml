@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Client can communicate with Server &amp; dashboard + TransactionList is working from DB">
-      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/util/types.ts" afterDir="false" />
+    <list default="true" id="d5156e3c-035a-4c79-98a1-503a01ab812d" name="Changes" comment="Add transactions page - added input fields">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-bake.hcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/denarius/denarius-client/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Totum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Totum.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client-api/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/BarChartWithData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/components/dashboard/BarChartWithData.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/contex/AppReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/contex/TransactionsReducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/contex/GlobalState.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/contex/GlobalState.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/CategoryModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/CategoryModel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/TransactionModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/Transaction.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/UserModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/models/UserModel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/AddTransactionPage/AddTransaction.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/HomePage/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/ListTransactions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/pages/ListTransactionsPage/TestTransactions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/src/theme/consts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/src/theme/consts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client-api/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/denarius/denarius-client/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
         <option value="CSS File" />
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -62,6 +62,17 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;contexts&quot;: [
+    {
+      &quot;name&quot;: &quot;default&quot;
+    }
+  ],
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="KubernetesSettings">
+    <option name="contextName" value="default" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -76,37 +87,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ReactCreateComponentLastSelected": "arrowFunctionComponent",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev/client",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/vluv99/Documents/projects/Totum/src/denarius/denarius-client/denarius-client/package.json",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.React Buddy Preview.executor": "Run",
-    "npm.build.executor": "Run",
-    "npm.generate.executor": "Run",
-    "npm.start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\vluv99\\AppData\\Roaming\\npm\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\vluv99\\Documents\\projects\\Totum\\src\\denarius\\denarius-client\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TypeScript"
-    ]
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Docker Image (1).executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Docker Image.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.denarius-client/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;ReactCreateComponentLastSelected&quot;: &quot;arrowFunctionComponent&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev/client&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dpeter99/Documents/Projects/Denarius/Totum/Dockerfile&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/home/dpeter99/.nvm/versions/node/v21.6.1/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.React Buddy Preview.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\vluv99\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/dpeter99/Documents/Projects/Denarius/Totum/src/denarius/denarius-client/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="ReactDesignerToolWindowState">
@@ -127,14 +138,102 @@
       <recent name="C:\Users\vluv99\Documents\projects\Totum\src\denarius\denarius-client" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.generate">
+  <component name="RunManager" selected="Docker.Docker Image (2)">
+    <configuration name="Docker Image (1)" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="sha256:a9b8b9e505d8519098e24d49f8a1a739906be459e3e8cc8f0098e158fb7f909e" />
+          <option name="containerName" value="" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="80" />
+                <option name="hostIp" value="0.0.0.0" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Docker Image (2)" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="sha256:9d18eb5d7e322255318ee93f25a74a307a50ac851ea5243a84814e317d680810" />
+          <option name="containerName" value="" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="80" />
+                <option name="hostIp" value="0.0.0.0" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="sha256:8a950b039d9bb5a50ff1921394f62656bb4b0a962c8d409ff0ac4b47b61b5877" />
+          <option name="containerName" value="" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="80" />
+                <option name="hostIp" value="0.0.0.0" />
+                <option name="hostPort" value="4569" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
+      <deployment type="docker-image">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="src/denarius/denarius-client/Dockerfile build" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="deps_build" />
+          <option name="buildCliOptions" value="--target build" />
+          <option name="buildKitEnabled" value="true" />
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="src/denarius/denarius-client/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="src/denarius/denarius-client/Dockerfile deps" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="node18-alpine_deps" />
+          <option name="buildCliOptions" value="--target deps" />
+          <option name="buildKitEnabled" value="true" />
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="src/denarius/denarius-client/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="build" type="js.build_tools.npm" folderName="denarius-client" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/src/denarius/denarius-client/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v21.1.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -154,7 +253,7 @@
       <scripts>
         <script value="start" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v21.1.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -164,11 +263,16 @@
       <scripts>
         <script value="test" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v21.1.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.Docker Image" />
+      <item itemvalue="Docker.Docker Image (1)" />
+      <item itemvalue="Docker.Docker Image (2)" />
+      <item itemvalue="Docker.src/denarius/denarius-client/Dockerfile build" />
+      <item itemvalue="Docker.src/denarius/denarius-client/Dockerfile deps" />
       <item itemvalue="npm.start" />
       <item itemvalue="npm.build" />
       <item itemvalue="npm.test" />
@@ -176,7 +280,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.generate" />
+        <item itemvalue="Docker.Docker Image (2)" />
+        <item itemvalue="Docker.Docker Image (1)" />
+        <item itemvalue="Docker.Docker Image" />
+        <item itemvalue="Docker.src/denarius/denarius-client/Dockerfile deps" />
+        <item itemvalue="Docker.src/denarius/denarius-client/Dockerfile build" />
       </list>
     </recent_temporary>
   </component>
@@ -193,8 +301,8 @@
       <workItem from="1704299828527" duration="20866000" />
       <workItem from="1704364714334" duration="41620000" />
       <workItem from="1705142316227" duration="575000" />
-      <workItem from="1704364714334" duration="42952000" />
-      <workItem from="1705145507165" duration="606000" />
+      <workItem from="1706435547137" duration="3488000" />
+      <workItem from="1706617377945" duration="54000" />
     </task>
     <task id="LOCAL-00001" summary="init - empty TS React project">
       <option name="closed" value="true" />
